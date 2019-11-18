@@ -47,11 +47,13 @@ function TableSort() {
 	console.log("tablesorter finished");
 }
 
-Papa.parse('demo.csv', {
-	download: true,
-	// quoteChar: '"',
-	complete: function(results) {
-		console.log("Parsing complete:", results.data);
-		createTable(results.data, TableSort);
-	}
+$(function() {
+	Papa.parse('demo.csv', {
+		download: true,
+		// quoteChar: '"',
+		complete: function(results) {
+			console.log("Parsing complete:", results.data);
+			createTable(results.data, TableSort);
+		}
+	});
 });
